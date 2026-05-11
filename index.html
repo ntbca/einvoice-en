@@ -39,7 +39,7 @@
 <body>
 
     <div id="wheel-section">
-        <h1>🎡 Tax Strategy!<br>Spin the Lucky Wheel</h1>
+        <h1>🎡 Tax Strategies!<br>Lucky Wheel</h1>
         <div class="wheel-container">
             <div class="pointer"></div>
             <canvas id="canvas" width="380" height="380"></canvas>
@@ -66,19 +66,19 @@
         const ctx = canvas.getContext('2d');
         
         // 轉盤上的英文標籤
-        const subLabels = ["E-Invoice", "Protection", "Equality", "Anti-Fraud", "CFC", "Tax News"];
+        const subLabels = ["E-Invoice", "Taxpayer Ombudsmen", "Gender Equality -LGBT(Lesbian,Gay,Bisexual,Transgender)", "Anti-Fraud", "CFC", "Tax Knowledge"];
         
         const wheelSec = document.getElementById('wheel-section');
         const quizSec = document.getElementById('quiz-section');
         const spinBtn = document.getElementById('spinBtn');
 
         const quizData = [
-            { cat: "Cloud Invoice - Warrior", q: "I want to upgrade to a Cloud Invoice carrier. What should I do?", img: "q1.jpg", options: ["Apply for mobile barcode and bind", "Keep taking paper invoices"], correct: 0 },
-            { cat: "Taxpayer Protection", q: "Who can help when facing difficulties with tax cases?", img: "q2.jpg", options: ["Taxpayer Rights Protection Act", "Next door neighbor"], correct: 0 },
-            { cat: "LGBT Equality", q: "What is the core message of the 'Walk Together' video?", img: "q3.jpg", options: ["Same-sex couples can choose joint/separate filing", "Gifts between spouses are tax-free", "Equal status in inheritance rights", "All of the above"], correct: 3 },
+            { cat: "E-Invoice", q: "I want to upgrade to a Cloud Invoice carrier. What should I do?", img: "q1.jpg", options: ["Apply for mobile barcode and bind", "Keep taking paper invoices"], correct: 0 },
+            { cat: "Taxpayer Ombudsmen", q: "Who can help when facing difficulties with tax cases?", img: "q2.jpg", options: ["Taxpayer Ombudsmen", "neighbor"], correct: 0 },
+            { cat: "LGBT", q: "What is the core message of the 'Walk Together' video?", img: "q3.jpg", options: [" Choose joint or separate filing for Individual Income Tax in the year of marriage or divorce.", "Gifts between spouses are exempt from Gift Tax.", "Equal inheritance rights regardless of gender.", "All of the above"], correct: 3 },
             { cat: "Anti-Fraud Tips", q: "What should you do if you receive a suspicious link or SMS?", img: "q4.jpg", options: ["Call 165 Anti-Fraud Hotline", "Click to see what it is"], correct: 0 },
-            { cat: "CFC Regulations", q: "What does the abbreviation 'CFC' stand for in taxation?", img: "q5.jpg", options: ["Controlled Foreign Company", "Kentucky Fried Chicken"], correct: 0 },
-            { cat: "Tax Updates", q: "Where can you find the latest tax information videos?", img: "q6.jpg", options: ["NTBCA YouTube Channel", "Just ignore it"], correct: 0 }
+            { cat: "CFC", q: "What does the abbreviation 'CFC' stand for in taxation?", img: "q5.jpg", options: ["Controlled Foreign Company", "Kentucky Fried Chicken"], correct: 0 },
+            { cat: "Tax Knowledge", q: "Where can you find the latest tax information videos?", img: "q6.jpg", options: ["NTBCA YouTube Channel", "Just ignore it"], correct: 0 }
         ];
 
         const colors = ['#FF6B6B', '#4ECDC4', '#FFE66D', '#FF9F43', '#A29BFE', '#54A0FF'];
