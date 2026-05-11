@@ -43,16 +43,24 @@
         🌐 中文版本 (Chinese)
     </button>
 </div>
-    <script>
+   <script>
 function switchLanguage() {
-    // 檢查目前是否正在看題目
+    // 檢查目前是否正在顯示題目頁面
     const quizSec = document.getElementById('quiz-section');
-    let url = 'https://ntbca.github.io/einvoice/';
     
-    if (quizSec.style.display === 'block' && typeof window.currentIdx !== 'undefined') {
-        url += '?q=' + window.currentIdx;
+    // 設定目標網址 (英文版請連往 einvoice；中文版請連往 einvoice-en)
+    let targetUrl = 'https://ntbca.github.io/einvoice/'; 
+    
+    // 如果 quizSec 存在且正在顯示題目，就帶上當前題號
+    if (quizSec && quizSec.style.display === 'block' && typeof window.currentIdx !== 'undefined') {
+        targetUrl += '?q=' + window.currentIdx;
+    } 
+    // 如果目前不在題目頁，但網址列已經有參數了，也把它帶過去
+    else if (window.location.search) {
+        targetUrl += window.location.search;
     }
-    location.href = url;
+    
+    location.href = targetUrl;
 }
 </script>
     <div id="wheel-section">
