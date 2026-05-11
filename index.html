@@ -47,7 +47,6 @@
 function switchLanguage() {
     // 檢查目前是否正在看題目
     const quizSec = document.getElementById('quiz-section');
-    // 注意：這裡是連往英文版
     let url = 'https://ntbca.github.io/einvoice/';
     
     if (quizSec.style.display === 'block' && typeof window.currentIdx !== 'undefined') {
@@ -167,6 +166,7 @@ function switchLanguage() {
         
         function showQuiz(idx) {
             window.currentIdx = idx;
+            window.history.replaceState(null, '', '?q=' + idx);
             wheelSec.style.display = 'none'; quizSec.style.display = 'block';
             const data = quizData[idx];
             document.getElementById('q-category').innerText = `[ ${data.cat} ]`;
@@ -219,14 +219,15 @@ function switchLanguage() {
     
     if (qIndex !== null) {
         const idx = parseInt(qIndex);
-        if (idx >= 0 && idx < quizData.length) {
-            showQuiz(idx); // 直接跳到該題目
-        } else {
-            drawWheel(); // 參數錯誤則顯示轉盤
-        }
+       if (idx >= 0 && idx < quizData.length) {
+        drawWheel(); 
+        showQuiz(idx); 
     } else {
-        drawWheel(); // 沒有參數則顯示轉盤
+        drawWheel();
     }
+} else {
+    drawWheel();
+}
     </script>
 </body>
 </html>
