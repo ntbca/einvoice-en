@@ -48,7 +48,7 @@ function switchLanguage() {
     // 檢查目前是否正在看題目
     const quizSec = document.getElementById('quiz-section');
     // 注意：這裡是連往英文版
-    let url = 'https://ntbca.github.io/einvoice-en/';
+    let url = 'https://ntbca.github.io/einvoice/';
     
     if (quizSec.style.display === 'block' && typeof window.currentIdx !== 'undefined') {
         url += '?q=' + window.currentIdx;
