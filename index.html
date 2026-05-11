@@ -71,7 +71,7 @@
         const ctx = canvas.getContext('2d');
         
         // 轉盤上的英文標籤
-        const subLabels = ["E-Invoice", "Taxpayer-Ombudsmen", "Gender Equality-LGBT", "Anti-Fraud", "CFC", "Tax Knowledge"];
+        const subLabels = ["E-Invoice", "Taxpayer_Ombudsmen", "Gender Equality_-LGBT", "Anti-Fraud", "CFC", "Tax Knowledge"];
         
         const wheelSec = document.getElementById('wheel-section');
         const quizSec = document.getElementById('quiz-section');
@@ -115,7 +115,7 @@
             // --- 第二行：副標題 ---
            if (i === 1 || i === 2) { 
                 // 只有第三題 (index 為 2) 才執行換行
-                const parts = subLabels[i].split("-");
+                const parts = subLabels[i].split("_");
                 ctx.font = "14px sans-serif";
                 ctx.fillText(parts[0], center - 25, 8);  // 第一段
                 ctx.fillText(parts[1], center - 25, 24); // 第二段
