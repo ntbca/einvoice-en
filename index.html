@@ -222,20 +222,21 @@ function switchLanguage() {
             spinBtn.disabled = false;
         }
         
-        const urlParams = new URLSearchParams(window.location.search);
+      // --- 英文版 index.html 最下方 ---
+window.addEventListener('load', function() {
+    const urlParams = new URLSearchParams(window.location.search);
     const qIndex = urlParams.get('q');
     
     if (qIndex !== null) {
         const idx = parseInt(qIndex);
-       if (idx >= 0 && idx < quizData.length) {
-        drawWheel(); 
-        showQuiz(idx); 
-    } else {
-        drawWheel();
+        if (idx >= 0 && idx < quizData.length) {
+            drawWheel();   // 畫背景
+            showQuiz(idx); // 直接顯示該題號的英文題目
+            return;        // 結束，不要再往下執行
+        }
     }
-} else {
-    drawWheel();
-}
+    drawWheel(); // 如果沒參數，正常畫轉盤
+});
     </script>
 </body>
 </html>
