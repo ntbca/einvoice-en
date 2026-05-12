@@ -45,22 +45,16 @@
 </div>
    <script>
 function switchLanguage() {
-    // 1. 先抓取目前網址的所有參數 (例如 ?q=2)
-    const currentParams = window.location.search;
-    
-    // 2. 設定目標網址 (中文版要跳往英文版)
+    // 1. 設定目標網址 (中文版跳往英文版)
     let targetUrl = 'https://ntbca.github.io/einvoice/';
     
-    // 3. 檢查：如果目前網址已經有參數了，直接把參數接上去
-    if (currentParams && currentParams.includes('q=')) {
-        targetUrl += currentParams;
-    } 
-    // 4. 安全備案：如果網址沒有參數但我們記住了題號，也接上去
-    else if (typeof window.currentIdx !== 'undefined') {
+    // 2. 直接檢查全域變數 window.currentIdx 是否有值
+    // 只要進入過 showQuiz，這個變數就會是 0~5 之間的數字
+    if (typeof window.currentIdx !== 'undefined' && window.currentIdx !== null) {
         targetUrl += '?q=' + window.currentIdx;
     }
     
-    // 5. 執行跳轉
+    // 3. 強制跳轉
     location.href = targetUrl;
 }
 </script>
