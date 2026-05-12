@@ -45,21 +45,22 @@
 </div>
    <script>
 function switchLanguage() {
-    // 檢查目前是否正在顯示題目頁面
-    const quizSec = document.getElementById('quiz-section');
+    // 1. 先抓取目前網址的所有參數 (例如 ?q=2)
+    const currentParams = window.location.search;
     
-    // 設定目標網址 (英文版請連往 einvoice；中文版請連往 einvoice-en)
-    let targetUrl = 'https://ntbca.github.io/einvoice/'; 
+    // 2. 設定目標網址 (中文版要跳往英文版)
+    let targetUrl = 'https://ntbca.github.io/einvoice/';
     
-    // 如果 quizSec 存在且正在顯示題目，就帶上當前題號
-    if (quizSec && quizSec.style.display === 'block' && typeof window.currentIdx !== 'undefined') {
-        targetUrl += '?q=' + window.currentIdx;
+    // 3. 檢查：如果目前網址已經有參數了，直接把參數接上去
+    if (currentParams && currentParams.includes('q=')) {
+        targetUrl += currentParams;
     } 
-    // 如果目前不在題目頁，但網址列已經有參數了，也把它帶過去
-    else if (window.location.search) {
-        targetUrl += window.location.search;
+    // 4. 安全備案：如果網址沒有參數但我們記住了題號，也接上去
+    else if (typeof window.currentIdx !== 'undefined') {
+        targetUrl += '?q=' + window.currentIdx;
     }
     
+    // 5. 執行跳轉
     location.href = targetUrl;
 }
 </script>
