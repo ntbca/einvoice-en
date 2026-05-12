@@ -212,10 +212,17 @@ function switchLanguage() {
         }
 
         function showWheel() {
-            quizSec.style.display = 'none'; 
-            wheelSec.style.display = 'flex'; 
-            spinBtn.disabled = false;
-        }
+    // --- 新增這行：回到轉盤時，強制清空網址列的參數 ---
+    window.history.replaceState(null, '', window.location.pathname);
+    
+    // 原本的程式碼
+    quizSec.style.display = 'none'; 
+    wheelSec.style.display = 'flex'; 
+    spinBtn.disabled = false;
+    
+    // 建議也把紀錄題號的變數清空，避免按鈕抓錯
+    window.currentIdx = undefined; 
+}
         
       // --- 英文版 index.html 最下方 ---
 window.addEventListener('load', function() {
